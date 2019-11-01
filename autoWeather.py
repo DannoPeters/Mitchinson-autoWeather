@@ -63,14 +63,13 @@ while 1:
 	south.minimize_window()
 	north.minimize_window()
 	for i in loop:
-		gfa[i].maximize_window()
+		gfa[i].minimize_window()
 	time.sleep(dwellRVR)
 
 	#show GFA
 	rvr.minimize_window()
 	south.minimize_window()
 	north.minimize_window()
-	
 	for i in loop:
 		#Graphic Area Forecast
 		gfa[i].get(liveGFA[i])
@@ -90,7 +89,7 @@ while 1:
 	south.minimize_window()
 	north.minimize_window()
 	for i in loop:
-		gfa[i].maximize_window()
+		gfa[i].minimize_window()
 	time.sleep(dwellSchedule)
 
 	#Show Metars
@@ -106,7 +105,7 @@ while 1:
 	north.execute_script("window.scrollTo(0, 1000)")
 	rvr.minimize_window()
 	for i in loop:
-		gfa[i].maximize_window()
+		gfa[i].minimize_window()
 	time.sleep(dwellMETAR)
 
 
