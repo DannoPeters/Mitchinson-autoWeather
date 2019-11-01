@@ -74,14 +74,16 @@ while 1:
 		#Graphic Area Forecast
 		gfa[i].get(liveGFA[i])
 		gfa[i].maximize_window()
-		gfa[i].set_window_size(640,520)
+		gfa[i].set_window_size(680,550)
 		gfa[i].set_window_position(0+i*640,0)
 
+	for i in loop:
 		#Turbulance Icing and Freezing
 		tif[i].get(liveTIF[i])
 		tif[i].maximize_window()
-		tif[i].set_window_size(640,520)
+		tif[i].set_window_size(680,550)
 		tif[i].set_window_position(0+i*640,520)
+		
 	time.sleep(dwellGFA)
 
 	#Show Schedule (background)
