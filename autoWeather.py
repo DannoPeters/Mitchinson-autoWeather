@@ -39,13 +39,9 @@ dwellMETAR = 1
 try:
 	rvr = webdriver.firefox.webdriver.WebDriver()
 
-	gfa[0] = webdriver.firefox.webdriver.WebDriver()
-	gfa[1] = webdriver.firefox.webdriver.WebDriver()
-	gfa[2] = webdriver.firefox.webdriver.WebDriver()
+	gfa = [webdriver.firefox.webdriver.WebDriver(), webdriver.firefox.webdriver.WebDriver(), webdriver.firefox.webdriver.WebDriver()]
 
-	tif[0] = webdriver.firefox.webdriver.WebDriver()
-	tif[1] = webdriver.firefox.webdriver.WebDriver()
-	tif[2] = webdriver.firefox.webdriver.WebDriver()
+	tif = [webdriver.firefox.webdriver.WebDriver(), webdriver.firefox.webdriver.WebDriver(), webdriver.firefox.webdriver.WebDriver()]
 
 	north = webdriver.firefox.webdriver.WebDriver()
 	south = webdriver.firefox.webdriver.WebDriver()
@@ -53,24 +49,28 @@ except:
 	sys.exit("\tError: Firefox driver is required. Please install 'geckodriver' from https://github.com/mozilla/geckodriver or download pip install webdriverdownloader and run 'webdriverdownloader firefox' and update PATH.")
 
 #open all web addresses
+loop = [0,1,2]
+for i in loop:
+	gfa[i].get(liveGFA[i])
+
 rvr.get(liveRVR)
-gfa.get(liveGFA)
 north.get(northMETAR)
 south.get(southMETAR)
 
 while 1:
 	#show RVR
 	rvr.maximize_window()
-	gfa.minimize_window()
 	south.minimize_window()
 	north.minimize_window()
+	for i in loop:
+		gfa[i].maximize_window()
 	time.sleep(dwellRVR)
 
 	#show GFA
 	rvr.minimize_window()
 	south.minimize_window()
 	north.minimize_window()
-	loop = [0,1,2]
+	
 	for i in loop:
 		#Graphic Area Forecast
 		gfa[i].get(liveGFA[i])
@@ -87,9 +87,10 @@ while 1:
 
 	#Show Schedule (background)
 	rvr.minimize_window()
-	gfa.minimize_window()
 	south.minimize_window()
 	north.minimize_window()
+	for i in loop:
+		gfa[i].maximize_window()
 	time.sleep(dwellSchedule)
 
 	#Show Metars
@@ -104,7 +105,8 @@ while 1:
 	north.set_window_position(960,0)
 	north.execute_script("window.scrollTo(0, 1000)")
 	rvr.minimize_window()
-	gfa.minimize_window()
+	for i in loop:
+		gfa[i].maximize_window()
 	time.sleep(dwellMETAR)
 
 
