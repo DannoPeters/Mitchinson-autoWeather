@@ -29,10 +29,10 @@ southMETAR = "https://flightplanning.navcanada.ca/cgi-bin/route.cgi?Langue=angla
 northMETAR = "https://flightplanning.navcanada.ca/cgi-bin/route.cgi?Langue=anglais&TypeBrief=R&TypeTriage=R&NoSession=NS_Inconnu&Version=T&Corridor=50&Depart=CYXE&Location=F&EnRoute=CYLL&Location2=C&Destination=CYQW&Location3=P&Alternates=CYPA&Location4=T&SauveReq=actif&cw_metar=raw_metar"
 
 #CHnage the times below to chnage the dwell time on each screen
-dwellSchedule = 1
-dwellRVR = 1
-dwellGFA = 20
-dwellMETAR = 1
+dwellSchedule = 20
+dwellRVR = 20
+dwellGFA = 30
+dwellMETAR = 30
 
 #choose your favourite web browser
 
